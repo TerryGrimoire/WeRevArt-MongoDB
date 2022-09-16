@@ -1,0 +1,182 @@
+.register_loginVsResgister_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 10rem;
+  font-size: 1.5rem;
+}
+
+.register_loginVsResgister_container > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.register_buttons_container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.register_buttons_container * {
+  width: 16rem;
+  height: 4rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.eye_icon {
+  width: 1rem;
+  margin-top: 0.5rem;
+  background-color: var(--button-color);
+  border-radius: 50%;
+}
+
+.register_title {
+  text-align: center;
+}
+
+.register_h4 {
+  font-size: 5rem;
+}
+
+.register_login_container {
+  position: relative;
+}
+
+.register_login_container > * {
+  padding: 2rem 0;
+}
+
+.register_div_or {
+  height: 100%;
+  padding-top: 25%;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.register_terms_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register_checkbox {
+  transform: scale(1.2);
+  margin-bottom: 1rem;
+  margin-right: -2rem;
+  margin-left: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.button_style {
+  width: 30rem;
+  display: flex;
+  flex-direction: row;
+  color: var(--dark-color);
+  background-color: var(--font-color);
+  border-radius: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: 2s all ease-in-out;
+  border: none;
+  animation: slowchange;
+  padding: 0;
+  box-shadow: var(--box-shadow);
+}
+
+.button_style2 {
+  width: 12rem;
+  border-radius: 0.5rem;
+  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.submit {
+  margin: 2rem 0;
+}
+
+.register_description {
+  font-size: 0.75rem;
+  padding: 1rem 3rem;
+}
+
+.button_style div {
+  text-align: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.button_login {
+  background-color: var(--button-color);
+  color: var(--font-color);
+  border-radius: 0rem 0.5rem 0.5rem 0;
+  animation: slowchange ease-in-out 0.5s;
+  padding: 1rem 2rem;
+  width: 50%;
+}
+.button_register {
+  background-color: var(--button-color);
+  color: var(--font-color);
+  border-radius: 0.5rem 0 0 0.5rem;
+  animation: slowchange 0.5s ease-in-out;
+  padding: 1rem 2rem;
+  width: 50%;
+}
+
+@keyframes slowchange {
+  0% {
+    background-color: initial;
+  }
+  100% {
+    background-color: var(--button-color);
+  }
+}
+.register_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation_message {
+  border-radius: 0.5rem;
+  width: 15rem;
+  height: 6rem;
+  opacity: 80%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  background-color: var(--button-color);
+  color: var(--font-color);
+  font-weight: bold;
+  position: absolute;
+  top: 80%;
+  right: -100%;
+  animation: appear_disappear 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes appear_disappear {
+  0% {
+    transform: translateX(50%);
+  }
+  50% {
+    transform: translateX(-20%);
+  }
+
+  100% {
+    display: none;
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+}

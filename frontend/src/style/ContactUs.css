@@ -1,0 +1,60 @@
+.form_qb {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.contact_form_qb {
+  text-align: center;
+  height: 52rem;
+}
+
+.form_message_qb {
+  text-align: center;
+
+  height: 48rem;
+}
+
+.contact_required_qb {
+  margin: 0;
+  font-weight: 100;
+}
+
+.button_form_qb {
+  padding: 0.25rem 3.5rem;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 1rem;
+  font-size: 2rem;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.field_input_qb {
+  height: 5rem;
+  padding: 0 2rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  text-align: left;
+  display: flex;
+}
+
+.field_label_qb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contact_textaera_qb {
+  height: 28rem;
+  width: 40rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  text-align: left;
+  display: flex;
+}

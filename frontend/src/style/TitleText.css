@@ -1,0 +1,31 @@
+.titleText-container {
+  display: flex;
+  padding: 2rem;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.titleText-element {
+  padding: 1.5rem;
+  font-size: large;
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleText-number {
+  height: 100%;
+  font-size: 12rem;
+  font-weight: bolder;
+  color: var(--button-color);
+  padding: 0 0.5rem;
+}
+.dataText-p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+h3 {
+  color: #203864;
+}

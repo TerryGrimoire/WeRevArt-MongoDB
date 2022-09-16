@@ -1,0 +1,60 @@
+.projectad_container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6rem;
+}
+.projectad_container h3 {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  margin-left: 4rem;
+  font-size: 2rem;
+  color: black;
+}
+
+.filter_map {
+  display: flex;
+  flex-direction: column;
+}
+.buttonlist_map {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 2.4rem;
+}
+.filter_selection {
+  background-color: var(--button-color);
+  color: var(--font-color);
+  font-size: 1.3rem;
+  border-radius: 5%;
+  margin-left: 2.4rem;
+  width: 250px;
+  height: 80px;
+}
+.filter_selection:hover {
+  background-color: var(--button-color);
+}
+.desappear {
+  display: none;
+}
+.appear {
+  display: initial;
+}
+.filter_options {
+  background-color: whitesmoke;
+  width: 250px;
+  font-size: 1rem;
+  line-height: 2rem;
+  color: black;
+  font-style: bold;
+  margin-left: 0.4rem;
+}
+.list_map {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.yellow {
+  background-color: var(--button-color);
+  color: var(--font-color);
+}

@@ -1,0 +1,88 @@
+.form_button {
+  border-radius: 0.5rem;
+  border-color: var(--button-color);
+  background-color: white;
+  margin-right: 1rem;
+}
+.section_form {
+  padding: 0 15rem 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  width: 100%;
+  height: min-content;
+}
+
+.form_eb {
+  display: flex;
+}
+.contact_form_eb {
+  font-size: 1.5rem;
+}
+.field_label_eb {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.input_eb {
+  width: 100%;
+  height: 12vh;
+  border-radius: 1.5rem;
+}
+.textarea_eb {
+  border-radius: 1.5rem;
+}
+
+.postAnAd_container {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.button_style_paa {
+  color: var(--dark-color);
+  width: 10rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  margin: 0.5rem 1rem;
+}
+
+.button_style_paa2.yellow {
+  color: var(--font-color);
+  width: 10rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  margin: 0.5rem 1rem;
+}
+
+.profile_h3 {
+  width: 30rem;
+  text-align: left;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.paa_subcontainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.textarea {
+  border-radius: 1rem;
+  width: 50rem;
+}
+
+.absolute_right {
+  position: absolute;
+  top: 115rem;
+  left: 70rem;
+}

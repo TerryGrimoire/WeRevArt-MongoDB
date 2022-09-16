@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300&family=Nunito+Sans:wght@200&family=PT+Serif&family=Ubuntu&display=swap%27");
+
+:root {
+  --background-gradient1: linear-gradient(rgb(255, 255, 255) 20%, #203864 80%);
+  --background-gradient2: linear-gradient(#203864 30%, rgb(12, 9, 9) 85%);
+  --font-height: 1.5;
+  --font-color: #ffffff;
+  --dark-color: rgb(0, 0, 0);
+  --box-shadow: rgba(0, 0, 0, 0.45) 5px 5px 5px 5px;
+  --button-color: #0071c1;
+}
+
+body {
+  background-color: var(--font-color);
+  color: #000000;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background-gradient1);
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: var(--font-color);
+}
+
+nav a:hover, footer a:hover, .ul_container a:hover{
+  color: var(--button-color);
+}
+
+h3 {
+  font-weight: bolder;
+}
+
+h2 {
+  padding-left: 5rem;
+  font-size: 3.5rem;
+}
+
+.no_button {
+  border: none;
+  background-color: transparent;
+}
+
+textarea {
+  color: var(--dark-color);
+  padding: 1rem 2rem;
+  font-size: 2rem;
+}
+
+.flex_container_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover,
+a:hover {
+  transform: scale(1.1);
+}

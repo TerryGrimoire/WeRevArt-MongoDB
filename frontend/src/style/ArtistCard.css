@@ -1,0 +1,116 @@
+.card_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.artist_container_tot {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-img-top {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+.card-top {
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  height: 37rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: var(--box-shadow);
+  border: 0.0015rem #0f0e0d solid;
+  margin: 5rem 3rem;
+  padding: 2rem;
+  width: 25rem;
+}
+
+.card-top:hover {
+  transform: scale(1.05);
+}
+.allcards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+.card-identity {
+  display: flex;
+  justify-content: first baseline;
+  margin-top: -4rem;
+  margin-left: 6rem;
+}
+.card-title {
+  font-weight: bold;
+  word-spacing: normal;
+}
+
+.card-text {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 1rem;
+  margin-top: -4rem;
+}
+.card_map {
+  margin-top: 4rem;
+}
+.list-group-item {
+  background-color: rgb(218, 235, 250);
+  font-weight: bold;
+  font-size: 0.75rem;
+  margin: 0.5rem;
+  border-radius: 0.25rem;
+  padding: 0.15rem 0.25rem;
+}
+.skills_list {
+  display: inline-flex;
+  margin-right: 1rem;
+}
+.contracttype_list {
+  display: inline-flex;
+  margin-right: 1rem;
+}
+.card-body {
+  font-weight: bold;
+}
+.likediv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  margin-left: 25rem;
+  margin-bottom: 2rem;
+}
+.counter {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+.btnfollow {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.1rem 0.25rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  background-color: var(--button-color);
+  border-radius: 0.25rem;
+  margin: 0 1rem;
+  color: white;
+}
+
+.count {
+  font-size: 1.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}

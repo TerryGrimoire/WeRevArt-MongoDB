@@ -1,0 +1,65 @@
+.button-style {
+  padding: 0.5rem 1rem;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.button-style:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.yellow {
+  background-color: var(--button-color);
+  color: var(--font-color);
+}
+
+.empty_yellow {
+  background-color: inherit;
+  color: #222a35;
+  border: var(--button-color) solid 4px;
+}
+
+.empty_blue {
+  background-color: inherit;
+  border: #222a35 solid 4px;
+  color: var(--button-color);
+}
+/*MYcreationuplaod button*/
+.my_creation_allbtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+.btn_background {
+  background-image: url();
+}
+.my_creation_savebtn {
+  background-color: var(--button-color);
+  color: #222a35;
+  border: var(--button-color) solid 4px;
+  padding: 0.25rem 3.5rem;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.25rem;
+  font-size: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+.my_creation_modifybtn {
+  background-color: inherit;
+  color: #222a35;
+  border: var(--button-color) solid 4px;
+  padding: 0.25rem 3.5rem;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.25rem;
+  font-size: 2rem;
+  transition: all 0.2s ease-in-out;
+  margin-left: 4rem;
+}

@@ -1,0 +1,55 @@
+.hero-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  background: var(--background-gradient1);
+  padding: 2.5rem;
+  animation: appear 1s ease-in-out;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+}
+
+.hero-h1 {
+  width: 75%;
+  font-weight: 500;
+  transition: all 1s ease-in-out;
+}
+
+@keyframes appear {
+  0% {
+    color: #222a35;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateZ(0);
+    color: #f1f1f1;
+    opacity: 1;
+  }
+}
+
+.hero-p {
+  font-size: 1.8rem;
+  color: white;
+  padding: 2rem 2rem 0 0;
+  width: 70%;
+}
+
+.hero-img {
+  width: 35rem;
+  height: 35rem;
+  object-fit: contain;
+  animation: appear 1s ease-in-out;
+}
+
+.section_carousel {
+  position: absolute;
+  left: 70%;
+  top: 20%;
+}
