@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import * as Realm from "realm-web";
 import { Helmet } from "react-helmet-async";
 import ArtistCards from "../components/ArtistCards";
 import ArtistFilter from "../components/Filters/Artists/ArtistFilter";
@@ -13,28 +13,23 @@ function Artists() {
     skills: [],
   });
 
-  const [ArtistCardViews, setArtistCardViews] = useState([]);
+  const [artists, setArtists] = useState([]);
+
+  const getAll = async () => {
+    const app = new Realm.App({ id: "werevart-wcoow" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const allArtists = await user.functions.getAllArtists();
+      setArtists(allArtists);
+    } catch (err) {
+      console.error("Failed to log in", err);
+    }
+  };
 
   useEffect(() => {
-    let url = `${import.meta.env.VITE_BACKEND_URL}/digitalartists?limit=25`;
-    if (filter.skills[0]) {
-      url += `&skills=${filter.skills.join("|")}`;
-    }
-    if (filter.contracttype[0]) {
-      url += `&contracttype=${filter.contracttype.join("|")}`;
-    }
-    if (filter.usertype[0]) {
-      url += `&usertype=${filter.usertype.join("|")}`;
-    }
-    axios
-      .get(url)
-      .then((res) => {
-        setArtistCardViews(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [filter]);
+    getAll();
+  }, []);
 
   return (
     <div>
@@ -44,11 +39,8 @@ function Artists() {
       <MiniHeader index={1} />
       <ArtistFilter filter={filter} setFilter={setFilter} />
       <div className="artist_container_tot">
-        {ArtistCardViews.map((ArtistCardView) => (
-          <ArtistCards
-            ArtistCardView={ArtistCardView}
-            key={ArtistCardView.id}
-          />
+        {artists.map((artist) => (
+          <ArtistCards artist={artist} key={artist.id} />
         ))}
       </div>
     </div>

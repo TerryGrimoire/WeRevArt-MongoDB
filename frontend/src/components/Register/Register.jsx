@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import ExportContextUser from "../context/UserContext";
+import ExportContextUser from "../../context/UserContext";
 
-import userAvatar from "../images/user.png";
-import ModalConnected from "./ModalConnected";
+import userAvatar from "../../images/user.png";
+import ModalConnected from "../ModalConnected";
 
 function Register() {
   const [modal, setModal] = useState(false);

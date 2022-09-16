@@ -1,112 +1,14 @@
 [
-    {
-            "contract":"payed contract",
-            "timeframe":"urgent",
-            "published":"2019-09-04",
-            "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg",
-            "alt":"route cassée",
-            "title":"route cassée",
-            "description":"description please : route cassée",
-            "artistePseudo":"Pseudo de l'artiste : route cassée",
-            "techniques":["3D", "Motion"]
-    },
-    {
-            "contract":"collaborative contract",
-            "timeframe":"1 month",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1645680827507-9f392edae51c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-            "alt":"main entouré d un anneau",
-            "title":"main entouré d un anneau",
-            "description":"description please : main entouré d un anneau",
-            "artistePseudo":"Pseudo de l'artiste : main entouré d un anneau",
-            "techniques":["Painting", "Photography"]
-    },
-    {
-            "contract":"payed contract",
-            "timeframe":"As soon as possible",
-            "published":"2019-09-04",
-            "src":"https://i.ibb.co/K9cG2n3/user.png",
-            "alt":"user logo",
-            "title":"user logo",
-            "description":"description please : user logo",
-            "artistePseudo":"Pseudo de l'artiste : user logo",
-            "techniques": ["Photography", "Motion"] 
-         },
-    {
-            "contract":"payed contract",
-            "timeframe":"urgent",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1166&q=80", 
-            "alt":"peinture abstraite",
-            "title":"peinture abstraite",
-            "description":"description please : peinture abstraite",
-            "artistePseudo":"Pseudo de l'artiste : peinture abstraite",
-            "techniques":["Photography", "Motion"]
-    },
-    {
-            "contract":"payed contract",
-            "timeframe":"3 months",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1622737133809-d95047b9e673?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-            "alt":"art cubique",
-            "title":"art cubique",
-            "description":"description please : art cubique",
-            "artistePseudo":"Pseudo de l'artiste : art cubique",
-            "techniques":["VR", "Painting"]
-    },
-    {
-            "contract":"payed contract",
-            "timeframe":"2 weeks",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1484589065579-248aad0d8b13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=459&q=80",
-            "alt":"galaxy art",
-            "title":"galaxy art",
-            "description":"description please : galaxy art",
-            "artistePseudo":"Pseudo de l'artiste : galaxy art",
-            "techniques": ["VR", "Motion"]
-    },
-    {
-            "contract":"collaborative contract",
-            "timeframe":"normal",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1501472312651-726afe119ff1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80", 
-            "alt":"main colorée",
-            "title":"main colorée",
-            "description":"description please : main colorée",
-            "artistePseudo":"Pseudo de l'artiste : main colorée",
-            "techniques":["3D", "Painting"]
-    },
-    {
-            "contract":"payed contract",
-            "timeframe":"normal",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1561839561-b13bcfe95249?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=379&q=80",
-            "alt":"bal des statues",
-            "title":"bal des statues",
-            "description":"description please : bal des statues",
-            "artistePseudo":"Pseudo de l'artiste : bal des statues",
-            "techniques":["3D", "Motion"]
-    },
-    {
-            "contract":"payed contract",
-            "timeframe":"normal",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1547333590-47fae5f58d21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80",
-            "alt":"visage de femme",
-            "title":"visage de femme",
-            "description":"description please : visage de femme",
-            "artistePseudo":"Pseudo de l'artiste : visage de femme",
-            "techniques":["VR", "Photography"]
-    },
-    {
-            "contract":"payed contract",
-            "timeframe":"urgent",
-            "published":"2019-09-04",
-            "src":"https://images.unsplash.com/photo-1579833981331-676fa2bae313?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-            "alt":"colorfull poisson",
-            "title":"colorfull poisson",
-            "description":"description please : colorfull poisson",
-            "artistePseudo":"Pseudo de l'artiste : colorfull poisson",
-            "techniques":["VR", "Painting"]
-    }
-]
+       {"firsName":"Quentin","lastName":"Billac","adress":"rue rene boylesve","postcode":37160,"city":"Descartes","country":"France","username":"Quentin","src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s","skills":["3D", "Photography"], "type":"digital"},
+       {"firsName":"Aurore","lastName":"Obert","adress":"rue de la soif","postcode":29000,"city":"Brest","country":"France","username":"Aurore","src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s","skills":["3D", "Painting"], "type":"traditional"},
+       {"firsName":"Etienne","lastName":"Bacle","adress":"rue de loseille","postcode":33000,"city":"Bordeaux","country":"France","username":"Etienne","src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry.","skills":["Motion", "3D", "Painting", "Photography"], "type":"traditional"},
+       {"firsName":"MC","lastName":"MC","adress":"Rue de la vieille","postcode":34000,"city":"Montpellier","country":"France","username":"MC","src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry.","skills":["Motion", "VR", "3D", "Painting", "Photography"], "type":"digital"},
+       {"firsName":"Jean Pierre", "lastName":"Larevue", "adress":"rue de Jean Pierre", "postcode":38520,"city":"Paris", "country":"France", "username":"Jean Pierre","src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée", "description":"Hello, I am Jean Pierre and I am specialized in digital arts such as 3D and motion","skills":["Motion", "VR"], "type":"traditional"},
+       {"firsName":"Lea", "lastName":"Castel", "adress":"rue de Castel","postcode": 75000, "city":"Barcelona", "country":"Spain","username": "Lea","src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Lea and I am specialized in digital arts such as 3D and motion","skills":["Motion", "VR", "Painting", "Photography"], "type":"traditional"},
+       {"firsName":"Josephine","lastName": "Ange Gardien", "adress":"rue du Paradis", "postcode":85200,"city": "Fontenay-le-Comte","country": "France","username": "Jo", "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Josephine and I am specialized in digital arts such as 3D and motion","skills":["VR,  Photography"], "type":"digital"},
+       {"firsName":"Josette", "lastName":"La Moulette", "adress":"Rue de la Moule","postcode": 92100, "city":"Berlin","country": "Germany", "username":"Josette", "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Josette and I am specialized in digital arts such as 3D and motion" ,"skills":["Motion", "VR", "Photography"], "type":"traditional"},
+       {"firsName":"Paulo", "lastName":"Lebello", "adress":"Rue de le Bello", "postcode":72100, "city":"Lisbon","country": "Portugal", "username":"Paulo", "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Paulo and I am specialized in digital arts such as 3D and motion"  ,"skills":["Motion", "VR", "3D", "Painting", "Photography"], "type":"traditional"},
+       {"firsName":"kirikou","lastName":"Le petit", "adress":"Rue de Kirikou", "postcode":22100, "city":"Addis-Abeba","country": "Éthiopie", "username":"Kirikou", "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Kirikou and I am specialized in digital arts such as 3D and motion","skills":["VR", "3D"], "type":"digital"},
+       {"firsName":"Digital","lastName":"Artist", "adress":"Rue de digital art", "postcode":55800, "city":"Luanda", "country":"Angola", "username":"Digital", "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Digital and I am specialized in digital arts such as 3D and motion","skills":["Motion", "Photography"], "type":"digital"},
+       {"firsName":"Traditional","lastName":"Artist", "adress":"Rue de traditional art", "postcode":82000, "city":"Tokyo", "country":"Japon","username": "Tradi", "src":"https://randomwordgenerator.com/img/picture-generator/52e7d544435ab10ff3d8992cc12c30771037dbf852547941742673dc944e_640.jpg","alt":"route cassée","description":"Hello, I am Traditional and I am specialized in digital arts such as 3D and motion","skills":["Painting", "Photography"], "type":"traditional"}
+   ]

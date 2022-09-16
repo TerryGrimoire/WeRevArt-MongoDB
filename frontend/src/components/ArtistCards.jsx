@@ -3,53 +3,26 @@ import React from "react";
 import "../style/ArtistCard.css";
 import Likebutton from "./Likebutton";
 
-function ArtistCards({ ArtistCardView }) {
+function ArtistCards({ artist }) {
   return (
-    <section className="card_container" key={ArtistCardView.id}>
+    <section className="card_container" key={artist.id}>
       <div>
         <div className="card-top">
-          <img
-            className="card-img-top"
-            src={ArtistCardView.image}
-            alt={ArtistCardView.alt}
-          />
+          <img className="card-img-top" src={artist.src} alt={artist.alt} />
           <div className="card-identity">
             <h4 className="card-title">
-              {ArtistCardView.firstname && ArtistCardView.firstname}
-              {ArtistCardView.lastname && ArtistCardView.lastname}
+              {`${artist.firstName} ${artist.lastName}`}
             </h4>
+            <h5>{artist.type}</h5>
           </div>
-          <p className="card-text">
-            {ArtistCardView.country && ArtistCardView.country}
-          </p>
+          <p className="card-text">{artist.country}</p>
           <div className="card_map">
-            {ArtistCardView.skills.map((skill) => (
-              <ul className="skills_list" key={skill.id}>
-                <li className="list-group-item">
-                  {skill.skills && skill.skills}
-                </li>
+            {artist.skills.map((skill) => (
+              <ul className="skills_list">
+                <li className="list-group-item">{skill}</li>
               </ul>
             ))}
-            {ArtistCardView.contracttype.map((contract) => (
-              <ul className="contracttype_list" key={contract.contracttype_id}>
-                <li className="list-group-item">
-                  {contract.contracttype && contract.contracttype}
-                </li>
-              </ul>
-            ))}
-            {ArtistCardView.usertype.map((usertypes) => (
-              <ul className="contracttype_list" key={usertypes.usertype_id}>
-                <li className="list-group-item">
-                  {usertypes.usertype && usertypes.usertype}
-                </li>
-              </ul>
-            ))}
-
-            <p className="card-body">
-              {" "}
-              Description :
-              {ArtistCardView.description && ArtistCardView.description}
-            </p>
+            <p className="card-body">Description :{artist.description}</p>
             <Likebutton />
           </div>
           <div />

@@ -2,10 +2,10 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import ExportContextUser from "../context/UserContext";
+import ExportContextUser from "../../context/UserContext";
 
-import hide from "../images/hide.png";
-import show from "../images/show.png";
+import hide from "../../images/hide.png";
+import show from "../../images/show.png";
 
 function LoginNow() {
   const { setUser } = useContext(ExportContextUser.UserContext);

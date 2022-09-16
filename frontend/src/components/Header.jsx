@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ExportContextUser from "../context/UserContext";
 import Logo from "../images/logo.png";
 import Nav from "./Nav";
-import Register from "./Register";
+import Register from "./Register/Register";
 import Button from "./Button";
 import buttonData from "../data/buttonData";
 import "../style/Header.css";

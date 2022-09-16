@@ -1,4 +1,4 @@
-import axios from "axios";
+import * as Realm from "realm-web";
 import { Helmet } from "react-helmet-async";
 import React, { useState, useEffect } from "react";
 import ProjectAdsFilter from "../components/Filters/ProjectAds/ProjectAdsFilter";
@@ -14,26 +14,21 @@ function ProjectAds() {
 
   const [projects, setProjects] = useState([]);
 
+  const getData = async () => {
+    const app = new Realm.App({ id: "werevart-wcoow" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const allProjects = await user.functions.getAllProjects();
+      setProjects(allProjects);
+    } catch (err) {
+      console.error("Failed to log in", err);
+    }
+  };
+
   useEffect(() => {
-    let url = `${import.meta.env.VITE_BACKEND_URL}/projects?limit=25`;
-    if (filter.skills[0]) {
-      url += `&skills=${filter.skills.join("|")}`;
-    }
-    if (filter.contracttype[0]) {
-      url += `&contracttype=${filter.contracttype.join("|")}`;
-    }
-    if (filter.usertype[0]) {
-      url += `&usertype=${filter.usertype.join("|")}`;
-    }
-    axios
-      .get(url)
-      .then((res) => {
-        setProjects(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [filter]);
+    getData();
+  }, []);
 
   return (
     <div>

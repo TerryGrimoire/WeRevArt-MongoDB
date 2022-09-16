@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import TitleText from "./TitleText";
-import titleTextData2 from "../data/titleTextData2";
-import titleTextData3 from "../data/titleTextData3";
+import TitleText from "../TitleText";
+import titleTextData2 from "../../data/titleTextData2";
+import titleTextData3 from "../../data/titleTextData3";
 
-import "../style/register.css";
+import "../../style/register.css";
 
 function HowItWork() {
   const [work, setWork] = useState(false);

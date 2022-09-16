@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import ExportContextUser from "../context/UserContext";
-import Checklist from "./Checklist";
+import ExportContextUser from "../../context/UserContext";
+import Checklist from "../Checklist";
 
-import "../style/cardProject.css";
+import "../../style/cardProject.css";
 
 function RegisterHome() {
   const { user } = useContext(ExportContextUser.UserContext);

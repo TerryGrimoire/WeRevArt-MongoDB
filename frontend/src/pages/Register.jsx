@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import MiniHeader from "../components/miniHeader";
-import RegisterNow from "../components/RegisterNow";
-import LoginNow from "../components/LoginNow";
+import RegisterNow from "../components/Register/RegisterNow";
+import LoginNow from "../components/Register/LoginNow";
 
 import "../style/register.css";
 import "../style/Field.css";

@@ -1,30 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import * as Realm from "realm-web";
 
-import hide from "../images/hide.png";
-import show from "../images/show.png";
+import hide from "../../images/hide.png";
+import show from "../../images/show.png";
 
 function RegisterNow() {
   const [shown, setShown] = useState(false);
   const [registerButton, setRegisterButton] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/typeaccount `)
-      .then((res) => {
-        const typeAccount = res.data.map((type) => ({
-          ...type,
-          active: false,
-        }));
-        setRegisterButton(typeAccount);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  const postData = async (x) => {
+    const app = new Realm.App({ id: "werevart-wcoow" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      await user.functions.createUser(x);
+    } catch (err) {
+      console.error("Failed to log in", err);
+    }
+  };
 
   const {
     handleSubmit,
@@ -49,12 +45,13 @@ function RegisterNow() {
       const activeButton = registerButton.find((el) => el.active);
       data2.typeaccount_id = activeButton.id;
       delete data2.confirmed_password;
-      axios
+      postData();
+      /* axios
         .post(`${import.meta.env.VITE_BACKEND_URL}/user/signin`, data2)
         .then(() => {
           console.warn("User signin successful");
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err)); */
       setSubmitted(true);
     }
     //  else {

@@ -1,8 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import Suggestioncard from "../components/Suggestioncard";
-import HowItWork from "../components/HowItWork";
-import Hero from "../components/Hero";
-import CardProject from "../components/CardProject";
+import Suggestioncard from "../components/Home/Suggestioncard";
+import HowItWork from "../components/Home/HowItWork";
+import Hero from "../components/Home/Hero";
+import CardProject from "../components/Home/CardProject";
 
 export default function Home() {
   return (

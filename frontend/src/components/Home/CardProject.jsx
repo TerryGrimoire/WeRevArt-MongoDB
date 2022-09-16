@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import * as Realm from "realm-web";
 import { Link } from "react-router-dom";
-import "../style/cardProject.css";
-import NewProject from "./NewProject";
+import "../../style/cardProject.css";
+import NewProject from "../NewProject";
 import RegisterHome from "./RegisterHome";
 
 function CardProject() {

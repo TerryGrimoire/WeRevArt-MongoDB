@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import ExportContextUser from "../context/UserContext";
-import images from "../data/HomeImagesData";
+import ExportContextUser from "../../context/UserContext";
+import images from "../../data/HomeImagesData";
 
-import "../style/Hero.css";
+import "../../style/Hero.css";
 
 function Hero() {
   const { user } = useContext(ExportContextUser.UserContext);
