@@ -1,17 +1,10 @@
 import * as Realm from "realm-web";
 import { Helmet } from "react-helmet-async";
 import React, { useState, useEffect } from "react";
-import ProjectAdsFilter from "../components/Filters/ProjectAds/ProjectAdsFilter";
 import MiniHeader from "../components/miniHeader";
 import NewProject from "../components/NewProject";
 
 function ProjectAds() {
-  const [filter, setFilter] = useState({
-    skills: [],
-    contracttype: [],
-    usertype: [],
-  });
-
   const [projects, setProjects] = useState([]);
 
   const getData = async () => {
@@ -37,7 +30,6 @@ function ProjectAds() {
       </Helmet>
       <MiniHeader index={0} />
 
-      <ProjectAdsFilter filter={filter} setFilter={setFilter} />
       <section className="cardProject_cardProject">
         <div className="cardProject_cards">
           {projects.map((project) => (

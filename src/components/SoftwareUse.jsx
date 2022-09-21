@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+
 import "../style/MyProfile.css";
 
 function SoftwareUse({ soft, handleSoft }) {
-  const [mysoftwareUse, setMySoftwareUse] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/softwareused`)
-      .then((res) => {
-        setMySoftwareUse(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
+  const mysoftwareUse = [
+    "Harmony",
+    "Maya",
+    "TvPaint",
+    "Blender",
+    "Animate",
+    "After Effects",
+    "Lightroom",
+    "Photoshop",
+  ];
   return (
     <div className="postAnAd_container">
       {mysoftwareUse.map((softwares) => (

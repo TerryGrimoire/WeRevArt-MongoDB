@@ -1,25 +1,37 @@
 import React, { useState } from "react";
+import axios from "axios";
+// import jwt from "jsonwebtoken";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import * as Realm from "realm-web";
 
 import hide from "../../images/hide.png";
 import show from "../../images/show.png";
 
 function RegisterNow() {
   const [shown, setShown] = useState(false);
-  const [registerButton, setRegisterButton] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
-  const postData = async (x) => {
-    const app = new Realm.App({ id: "werevart-wcoow" });
-    const credentials = Realm.Credentials.anonymous();
-    try {
-      const user = await app.logIn(credentials);
-      await user.functions.createUser(x);
-    } catch (err) {
-      console.error("Failed to log in", err);
-    }
+  /* const createToken = (id) => {
+    return jwt.sign({ id }, process.env.SECRET, { expiresIn: "3d" });
+  };
+
+  */
+
+  const postData = (x) => {
+    axios
+      .post(`https://data.mongodb-api.com/app/werevart-wcoow/endpoint/users`, x)
+
+      // create a token
+      /* eslint no-underscore-dangle: 0 */
+      //  const token = createToken(user._id);
+      // console.log({ x, token });
+      .then((res) => {
+        setSubmitted(true);
+        res.status(200).send("user created successfully");
+      })
+      .catch((err) => {
+        console.error("Failed to create a new user", err);
+      });
   };
 
   const {
@@ -30,63 +42,29 @@ function RegisterNow() {
   } = useForm();
   const passwordCurrent = watch("password", "");
 
-  const handleClick = (index) => {
-    const provisoirRegisterButton = registerButton.map((button) => ({
-      ...button,
-      active: false,
-    }));
-    provisoirRegisterButton[index].active = true;
-    setRegisterButton(provisoirRegisterButton);
-  };
-
   const onSubmit = (data) => {
     if (data.password === data.confirmed_password) {
       const data2 = { ...data };
-      const activeButton = registerButton.find((el) => el.active);
-      data2.typeaccount_id = activeButton.id;
       delete data2.confirmed_password;
-      postData();
-      /* axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/user/signin`, data2)
-        .then(() => {
-          console.warn("User signin successful");
-        })
-        .catch((err) => console.error(err)); */
-      setSubmitted(true);
+      postData(data2);
     }
-    //  else {
-    // }
   };
   return (
     <section className="register_login_container">
-      <section className="register_buttons_container">
-        {registerButton.map((btn, index) => (
-          <div key={btn.id}>
-            <button
-              type="button"
-              className={
-                btn.active
-                  ? "button_style2 yellow"
-                  : "button_style2 empty_yellow"
-              }
-              onClick={() => handleClick(index)}
-            >
-              {btn.type}
-            </button>
-            {btn.id === 1 ? (
-              <p className="register_description">
-                I am looking for physical artworks to animate
-              </p>
-            ) : (
-              <p className="register_description">
-                I am looking for digital artists to animate my art
-              </p>
-            )}
-          </div>
-        ))}
-      </section>
-
       <form onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="type" className="field_label">
+          Type
+          <select
+            name="type"
+            id="type"
+            {...register("type", { required: true })}
+          >
+            <option value="digital">Digital artist</option>
+            <option value="traditional">Traditional artist</option>
+          </select>
+          {errors.type && <p> Type is required </p>}
+        </label>
+
         <label htmlFor="email" className="field_label">
           Email address
           <input

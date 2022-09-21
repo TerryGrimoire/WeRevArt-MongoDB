@@ -2,17 +2,9 @@ import React, { useState, useEffect } from "react";
 import * as Realm from "realm-web";
 import { Helmet } from "react-helmet-async";
 import ArtistCards from "../components/ArtistCards";
-import ArtistFilter from "../components/Filters/Artists/ArtistFilter";
 import MiniHeader from "../components/miniHeader";
 /* CORRESPOND AU COMPONENT PROJECTAD */
 function Artists() {
-  const [filter, setFilter] = useState({
-    likes: [],
-    usertype: [],
-    contracttype: [],
-    skills: [],
-  });
-
   const [artists, setArtists] = useState([]);
 
   const getAll = async () => {
@@ -37,7 +29,6 @@ function Artists() {
         <title>We Rev&apos;Art | Artist </title>
       </Helmet>
       <MiniHeader index={1} />
-      <ArtistFilter filter={filter} setFilter={setFilter} />
       <div className="artist_container_tot">
         {artists.map((artist) => (
           <ArtistCards artist={artist} key={artist.id} />

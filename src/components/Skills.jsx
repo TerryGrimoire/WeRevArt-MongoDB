@@ -1,20 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import "../style/PostAnAd.css";
 
 function Skills({ skills, handleSkills }) {
-  const [mySkill, setMySkill] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/skills `)
-      .then((res) => {
-        setMySkill(res.data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
+  const mySkill = ["Motion", "VR", "3D", "Painting", "Photography"];
   return (
     <div className="postAnAd_container">
       {mySkill.map((skill) => (
