@@ -24,7 +24,7 @@ function Register() {
           <div className={login ? "" : "button_register"}>Register</div>
           <div className={login ? "button_login" : ""}>Login</div>
         </button>
-        {login ? <LoginNow /> : <RegisterNow />}
+        {login ? <LoginNow /> : <RegisterNow setLogin={setLogin} />}
       </section>
     </section>
   );
