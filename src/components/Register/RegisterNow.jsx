@@ -10,7 +10,6 @@ function RegisterNow({ setLogin }) {
   const [shown, setShown] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const secret = "e4g45eh24th45rgs21hg4e";
 
   const {
     handleSubmit,
@@ -30,7 +29,7 @@ function RegisterNow({ setLogin }) {
 
   const onSubmit = (data) => {
     if (data.password === data.confirmed_password) {
-      const data2 = { ...data, secret };
+      const data2 = { ...data };
       delete data2.confirmed_password;
       setLoading(true);
       postData(data2);

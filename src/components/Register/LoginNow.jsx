@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import * as Realm from "realm-web";
+import axios from "axios";
 import ExportContextUser from "../../context/UserContext";
 
 import hide from "../../images/hide.png";
 import show from "../../images/show.png";
 
 function LoginNow() {
-  const { handleUser } = useContext(ExportContextUser.UserContext);
+  const { user, setUser } = useContext(ExportContextUser.UserContext);
+  const [shown, setShown] = useState(false);
+  const [error, setError] = useState();
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -16,23 +18,15 @@ function LoginNow() {
     formState: { errors },
   } = useForm();
 
-  const postData = async (data) => {
-    const app = new Realm.App({ id: "werevart-wcoow" });
-    const credentials = Realm.Credentials.anonymous();
-    try {
-      const user = await app.logIn(credentials);
-      const checkUser = await user.functions.checkUser(data);
-      handleUser(checkUser);
-    } catch (err) {
-      console.error("Failed to log in", err);
-    }
-  };
-
   const onSubmit = (data) => {
-    postData(data);
-    navigate("/MyProfile");
+    axios
+      .post("https://werevartserverapi.onrender.com/api/users/login", data)
+      .then((res) => setUser(res))
+      .then(setError(null))
+      .then(localStorage.setItem("user", JSON.stringify(user)))
+      .then(navigate("/MyProfile"))
+      .catch((err) => setError(err));
   };
-  const [shown, setShown] = useState(false);
   return (
     <section className="register_login_container">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -71,6 +65,7 @@ function LoginNow() {
         <button type="submit" className="button_style2 empty_yellow submit">
           Login
         </button>
+        {error && <div> {error.response.data.error} </div>}
       </form>
     </section>
   );
