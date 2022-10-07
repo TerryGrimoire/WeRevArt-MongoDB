@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import * as Realm from "realm-web";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import axios from "axios";
 import hide from "../../images/hide.png";
 import show from "../../images/show.png";
 
@@ -20,19 +20,12 @@ function RegisterNow({ setLogin }) {
   } = useForm();
   const passwordCurrent = watch("password", "");
 
-  const postData = async (data) => {
-    const app = new Realm.App({ id: "werevart-wcoow" });
-    const credentials = Realm.Credentials.anonymous();
-    try {
-      const user = await app.logIn(credentials);
-      const newUser = await user.functions.createNewUser(data);
-      if (newUser) {
-        setLoading(false);
-        setSubmitted(true);
-      }
-    } catch (err) {
-      console.error("Failed to log in", err);
-    }
+  const postData = (data) => {
+    axios
+      .post("https://werevartserverapi.onrender.com/api/users", data)
+      .then(setLoading(false))
+      .then(setSubmitted(true))
+      .catch((err) => console.error("Failed to log in", err));
   };
 
   const onSubmit = (data) => {

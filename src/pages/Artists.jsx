@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import * as Realm from "realm-web";
+import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import ArtistCards from "../components/ArtistCards";
 import MiniHeader from "../components/miniHeader";
@@ -7,20 +7,11 @@ import MiniHeader from "../components/miniHeader";
 function Artists() {
   const [artists, setArtists] = useState([]);
 
-  const getAll = async () => {
-    const app = new Realm.App({ id: "werevart-wcoow" });
-    const credentials = Realm.Credentials.anonymous();
-    try {
-      const user = await app.logIn(credentials);
-      const allArtists = await user.functions.getAllArtists();
-      setArtists(allArtists);
-    } catch (err) {
-      console.error("Failed to log in", err);
-    }
-  };
-
   useEffect(() => {
-    getAll();
+    axios
+      .get("https://werevartserverapi.onrender.com/api/profiles")
+      .then((response) => setArtists(response.data))
+      .catch((err) => console.error(err));
   }, []);
 
   return (

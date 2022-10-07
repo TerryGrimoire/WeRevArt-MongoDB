@@ -9,7 +9,7 @@ function ProjectAds() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/projects/")
+      .get("https://werevartserverapi.onrender.com/api/projects/")
       .then((response) => setProjects(response.data))
       .catch((err) => console.error(err));
   }, []);
