@@ -3,7 +3,7 @@ import "../style/cardProject.css";
 
 function NewProject({ project }) {
   return (
-    <div className="cardProject_card" key={project.description}>
+    <div className="cardProject_card">
       <div className="cardProject_spec">
         <h3>
           {project.title}
@@ -11,8 +11,8 @@ function NewProject({ project }) {
         </h3>
         <p className="cardProject_modalities">
           Technique :
-          {project.techniques.map((tech) => (
-            <p>{tech}</p>
+          {project.techniques.map((tech, index) => (
+            <span key={project.techniques[index]}>{tech}</span>
           ))}
           Budget : {project.contract}
         </p>

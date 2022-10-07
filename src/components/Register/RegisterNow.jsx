@@ -48,7 +48,6 @@ function RegisterNow({ setLogin }) {
     setLogin(true);
     setSubmitted(false);
   };
-
   return (
     <section className="register_login_container">
       <form onSubmit={handleSubmit(onSubmit)}>

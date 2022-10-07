@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
+import * as Realm from "realm-web";
 import ExportContextUser from "../../context/UserContext";
 
 import hide from "../../images/hide.png";
 import show from "../../images/show.png";
 
 function LoginNow() {
-  const { setUser } = useContext(ExportContextUser.UserContext);
+  const { handleUser } = useContext(ExportContextUser.UserContext);
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -16,14 +16,21 @@ function LoginNow() {
     formState: { errors },
   } = useForm();
 
+  const postData = async (data) => {
+    const app = new Realm.App({ id: "werevart-wcoow" });
+    const credentials = Realm.Credentials.anonymous();
+    try {
+      const user = await app.logIn(credentials);
+      const checkUser = await user.functions.checkUser(data);
+      handleUser(checkUser);
+    } catch (err) {
+      console.error("Failed to log in", err);
+    }
+  };
+
   const onSubmit = (data) => {
-    axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, data)
-      .then((res) => {
-        setUser(res.data);
-        navigate("/MyProfile");
-      })
-      .catch((err) => console.error(err));
+    postData(data);
+    navigate("/MyProfile");
   };
   const [shown, setShown] = useState(false);
   return (

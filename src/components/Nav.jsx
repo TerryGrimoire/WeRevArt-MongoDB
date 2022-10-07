@@ -19,9 +19,6 @@ function Nav() {
         <Link className="nav_link" to="/Help">
           Help
         </Link>
-        <Link className="nav_link" to="/MyProfile">
-          Profile
-        </Link>
         <Link to="/Contact_us">
           <img className="navMail" src={Mail} alt="logo mail" />
         </Link>
