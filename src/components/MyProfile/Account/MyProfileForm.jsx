@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
-import "../style/MyProfile.css";
-import ExportContextUser from "../context/UserContext";
+import "../../../style/MyProfile.css";
+import ExportContextUser from "../../../context/UserContext";
 
-import Skills from "./Skills";
-import SoftwareUse from "./SoftwareUse";
-import UserType from "./UserType";
-import ContractTypes from "./ContractTypes";
+import Skills from "../../Skills";
+import SoftwareUse from "../../SoftwareUse";
+import UserType from "../../UserType";
+import ContractTypes from "../../ContractTypes";
 // eslint-disable-next-line import/no-extraneous-dependencies
 
 export default function MyProfileForm() {
@@ -46,12 +46,15 @@ export default function MyProfileForm() {
     description,
   };
 
-  const profile = { ...data, email: user.email };
+  const profile = { ...data };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/profile`, profile)
+      .patch(
+        `https://werevartserverapi.onrender.com/api/profiles/${user.id}`,
+        profile
+      )
       .then((res) => {
         handleUser(res.data);
       })

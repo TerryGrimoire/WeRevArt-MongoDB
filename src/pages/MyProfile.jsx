@@ -4,10 +4,18 @@ import React, { useState } from "react";
 // import ArtistRegistration from "../components/ArtistRegistration";
 // import CustomerRegistration from "../components/CustomerRegistration";
 import MiniHeader from "../components/miniHeader";
-import MyProfileForm from "../components/MyProfileForm";
+
+// import Forms
+import MyProfileForm from "../components/MyProfile/Account/MyProfileForm";
 import PersonalForm from "../components/MyProfile/Personal/PersonalForm";
 import BillingForm from "../components/MyProfile/Billing/BillingForm";
 import NotificationsForm from "../components/MyProfile/Notifications/NotificationsForm";
+
+// import information
+// import MyProfileInformation from "../components/MyProfile/Account/MyProfileInformation";
+// import PersonalInformation from "../components/MyProfile/Personal/PersonalInformation";
+// import Billinginformation from "../components/MyProfile/Billing/Billinginformation";
+// import NotificationsInformation from "../components/MyProfile/Notifications/NotificationsInformation";
 
 function MyProfile() {
   const [personal, setPersonal] = useState(true);

@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function BillingInformation({ billingData }) {
-  /* useEffect(() => {
-        axios
-      .get(`${import.meta.env.VITE_BACKEND_URL}/profile/billinginformation`, data)
+function BillingInformation() {
+  const [billingData, setBillingData] = useState();
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/profiles`)
       .then((res) => {
-        setbillingData(res.data);
-        navigate("/profile/billing");
+        setBillingData(res.data);
       })
       .catch((err) => console.error(err));
-    }, []) */
+  }, []);
+
   return (
     <div>
       <h3>Billing information</h3>
@@ -17,6 +21,13 @@ function BillingInformation({ billingData }) {
       <p>{billingData.registrationnumber}</p>
       <p>{billingData.address}</p>
       <p>{billingData.postcode}</p>
+      <button
+        type="button"
+        className="button-style yellow"
+        onClick={useNavigate("/profile/billingForm")}
+      >
+        Modify
+      </button>
     </div>
   );
 }

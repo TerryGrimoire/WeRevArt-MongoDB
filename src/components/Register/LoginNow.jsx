@@ -19,10 +19,10 @@ function LoginNow() {
   } = useForm();
 
   const onSubmit = (data) => {
+    setError(null);
     axios
       .post("https://werevartserverapi.onrender.com/api/users/login", data)
       .then((res) => setUser(res))
-      .then(setError(null))
       .then(localStorage.setItem("user", JSON.stringify(user)))
       .then(navigate("/MyProfile"))
       .catch((err) => setError(err));

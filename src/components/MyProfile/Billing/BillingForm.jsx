@@ -12,7 +12,7 @@ function BillingForm({ setBillingData }) {
 
   const onSubmit = (data) => {
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/profile/billingform`, data)
+      .patch(`${import.meta.env.VITE_BACKEND_URL}/profiles`, data)
       .then((res) => {
         setBillingData(res.data);
         navigate("/profile/billing");

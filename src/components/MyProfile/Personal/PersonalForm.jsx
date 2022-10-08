@@ -12,22 +12,26 @@ function PersonalForm() {
   const navigate = useNavigate();
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
   const onSubmit = (data) => {
-    const profile = { ...data, email: user.email };
+    const profile = { ...data };
     axios
-      .put(`${import.meta.env.VITE_BACKEND_URL}/profile`, profile)
+      .patch(
+        `https://werevartserverapi.onrender.com/api/profiles/${user.data.id}`,
+        profile
+      )
       .then((res) => {
         handleUser(res.data);
-        navigate("/MyProfile/");
       })
+      .then(navigate(`/profiles/${user.data.id}`))
       .catch((err) => console.error(err));
   };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="myAccount_container_noMiniHeader"
     >
       <div className="field_container">
-        <label htmlFor="firstname" className="field_label">
+        <label htmlFor="firstName" className="field_label">
           <div>
             First Name
             <span className="field_span"> (required) </span>
@@ -36,10 +40,10 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your first name"
-            {...register("firstname", { required: true })}
+            {...register("firstName", { required: true })}
           />
         </label>
-        <label htmlFor="lastname" className="field_label">
+        <label htmlFor="lastName" className="field_label">
           <div>
             Last Name
             <span className="field_span"> (required) </span>
@@ -48,7 +52,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your last name"
-            {...register("lastname", { required: true })}
+            {...register("lastName", { required: true })}
           />
         </label>
         <label htmlFor="username" className="field_label">

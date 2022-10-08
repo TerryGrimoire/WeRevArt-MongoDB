@@ -18,6 +18,13 @@ import ProtectedRoute from "./components/Protected/ProtectedRoute";
 import MyAccount from "./pages/MyAccount";
 import "./App.css";
 import PersonalInformation from "./components/MyProfile/Personal/PersonalInformation";
+import PersonalForm from "./components/MyProfile/Personal/PersonalForm";
+import BillingInformation from "./components/MyProfile/Billing/Billinginformation";
+import BillingForm from "./components/MyProfile/Billing/BillingForm";
+import NotificationsInformation from "./components/MyProfile/Notifications/NotificationsInformation";
+import NotificationsForm from "./components/MyProfile/Notifications/NotificationsForm";
+import MyProfileInformation from "./components/MyProfile/Account/MyProfileInformation";
+import MyProfileForm from "./components/MyProfile/Account/MyProfileForm";
 
 function App() {
   const { user } = useContext(ExportContextUser.UserContext);
@@ -37,6 +44,22 @@ function App() {
           <Route path="/MyProfile" element={<MyProfile />} />
           <Route path="/MyAccount" element={<MyAccount />} />
           <Route path="/profile/personal" element={<PersonalInformation />} />
+          <Route path="/profile/personalForm" element={<PersonalForm />} />
+          <Route path="/profile/billing" element={<BillingInformation />} />
+          <Route path="/profile/billingForm" element={<BillingForm />} />
+          <Route
+            path="/profile/description"
+            element={<MyProfileInformation />}
+          />
+          <Route path="/profile/profileForm" element={<MyProfileForm />} />
+          <Route
+            path="/profile/notifications"
+            element={<NotificationsInformation />}
+          />
+          <Route
+            path="/profile/notificationsForm"
+            element={<NotificationsForm />}
+          />
           <Route
             path="/My_Project_Ads"
             element={
