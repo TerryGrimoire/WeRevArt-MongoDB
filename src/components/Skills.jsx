@@ -16,7 +16,7 @@ function Skills({ skills, handleSkills }) {
           type="button"
           key={skill.id}
         >
-          {skill.skills}
+          {skill}
         </button>
       ))}
     </div>

@@ -1,33 +1,51 @@
-import React, { useContext } from "react";
+import axios from "axios";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ExportContextUser from "../../../context/UserContext";
+import ProfileInformationNav from "../../../pages/Profile/ProfileNav";
 
 function PersonalInformation() {
-  const { user } = useContext(ExportContextUser.UserContext);
-  return (
-    <div>
-      <h3>Personal information</h3>
+  const { user, handleUser } = useContext(ExportContextUser.UserContext);
 
-      {user.firstName ? (
-        <div>
-          <p>{user.firstName}</p>
-          <p>{user.lastName}</p>
-          <p>{user.username}</p>
-          <p>{user.email}</p>
-          <p>●●●●●●●●●●●●●●●●●</p>
+  useEffect(() => {
+    axios
+      .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
+      .then((res) => handleUser(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  return (
+    <div className="container2">
+      <section className="flex">
+        <ProfileInformationNav />
+
+        {user ? (
+          <div className="personal-information-container">
+            <h2> Personal Information </h2>
+            <section>
+              <p>firstname: {user.firstName}</p>
+              <p>lastname: {user.lastName}</p>
+              <p>username: {user.username}</p>
+              <p>email address: {user.email}</p>
+              <p>city: {user.city}</p>
+              <p>postcode: {user.postcode}</p>
+              <p>address: {user.adress}</p>
+              <p>country: {user.country}</p>
+            </section>
+            <Link to="/MyProfile">
+              <button type="button" className="button-style2 yellow">
+                Edit Information
+              </button>
+            </Link>
+          </div>
+        ) : (
           <Link to="/MyProfile">
-            <button type="button" className="button-style2 yellow">
-              Edit Information
+            <button type="button" className="button-style3 yellow">
+              Complete your profile
             </button>
           </Link>
-        </div>
-      ) : (
-        <Link to="/MyProfile">
-          <button type="button" className="button-style3 yellow">
-            Complete your profile
-          </button>
-        </Link>
-      )}
+        )}
+      </section>
     </div>
   );
 }
