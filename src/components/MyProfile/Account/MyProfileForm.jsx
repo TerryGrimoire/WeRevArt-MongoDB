@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../../style/MyProfile.css";
 import ExportContextUser from "../../../context/UserContext";
@@ -58,9 +59,9 @@ export default function MyProfileForm() {
       .then((res) => {
         handleUser(res.data);
       })
+      .then(useNavigate("/profile/description"))
       .catch((err) => console.error(err));
   };
-
   return (
     <section className="section_form">
       <form onSubmit={handleSubmit}>

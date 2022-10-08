@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import ExportContextUser from "../context/UserContext";
 
 // import ArtistRegistration from "../components/ArtistRegistration";
 // import CustomerRegistration from "../components/CustomerRegistration";
@@ -18,6 +19,8 @@ import NotificationsForm from "../components/MyProfile/Notifications/Notificatio
 // import NotificationsInformation from "../components/MyProfile/Notifications/NotificationsInformation";
 
 function MyProfile() {
+  const { user } = useContext(ExportContextUser.UserContext);
+
   const [personal, setPersonal] = useState(true);
   const [account, setAccount] = useState(false);
   const [billing, setBilling] = useState(false);
@@ -38,6 +41,8 @@ function MyProfile() {
     selected(true);
     choosing(selectedOption);
   };
+
+  console.warn(user);
   return (
     <div>
       <Helmet>

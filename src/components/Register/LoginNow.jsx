@@ -22,9 +22,9 @@ function LoginNow() {
     setError(null);
     axios
       .post("https://werevartserverapi.onrender.com/api/users/login", data)
-      .then((res) => setUser(res))
+      .then((res) => setUser(res.data))
       .then(localStorage.setItem("user", JSON.stringify(user)))
-      .then(navigate("/MyProfile"))
+      .then(user && navigate("/profile/personal"))
       .catch((err) => setError(err));
   };
   return (

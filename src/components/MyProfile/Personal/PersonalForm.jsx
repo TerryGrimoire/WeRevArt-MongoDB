@@ -11,17 +11,17 @@ function PersonalForm() {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     const profile = { ...data };
-    axios
+    await axios
       .patch(
-        `https://werevartserverapi.onrender.com/api/profiles/${user.data.id}`,
+        `https://werevartserverapi.onrender.com/api/profiles/${user.id}`,
         profile
       )
       .then((res) => {
         handleUser(res.data);
       })
-      .then(navigate(`/profiles/${user.data.id}`))
+      .then(navigate(`/profile/personal`))
       .catch((err) => console.error(err));
   };
 
