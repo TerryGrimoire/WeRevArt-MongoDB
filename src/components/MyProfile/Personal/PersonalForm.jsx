@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -25,6 +25,13 @@ function PersonalForm() {
       .catch((err) => console.error(err));
   };
 
+  useEffect(() => {
+    axios
+      .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
+      .then((res) => handleUser(res.data))
+      .catch((err) => console.error(err));
+  }, [user]);
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -40,6 +47,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your first name"
+            defaultValue={user && user.firstName}
             {...register("firstName", { required: true })}
           />
         </label>
@@ -52,6 +60,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your last name"
+            defaultValue={user && user.lastName}
             {...register("lastName", { required: true })}
           />
         </label>
@@ -63,7 +72,8 @@ function PersonalForm() {
           <input
             type="text"
             className="field_input"
-            placeholder="Enter your first user name"
+            placeholder="Enter your username"
+            defaultValue={user && user.username}
             {...register("username", { required: true })}
           />
         </label>
@@ -76,6 +86,7 @@ function PersonalForm() {
             type="text"
             className="field_input solo"
             placeholder="Enter your address"
+            defaultValue={user && user.adress}
             {...register("adress", { required: true })}
           />
         </label>
@@ -88,6 +99,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your postcode"
+            defaultValue={user && user.postcode}
             {...register("postcode", { required: true })}
           />
         </label>
@@ -100,6 +112,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your city"
+            defaultValue={user && user.city}
             {...register("city", { required: true })}
           />
         </label>
@@ -112,6 +125,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your country"
+            defaultValue={user && user.country}
             {...register("country", { required: true })}
           />
         </label>
