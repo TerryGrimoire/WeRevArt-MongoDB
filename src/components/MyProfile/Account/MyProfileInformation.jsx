@@ -12,7 +12,7 @@ function MyProfileInformation() {
       .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
       .then((res) => handleUser(res.data))
       .catch((err) => console.error(err));
-  }, [user]);
+  }, []);
 
   return (
     <div className="container2">

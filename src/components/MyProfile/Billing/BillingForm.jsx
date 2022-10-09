@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
 import axios from "axios";
+import ExportContextUser from "../../../context/UserContext";
 
 import "../../../style/MyAccount.css";
 
-function BillingForm({ setBillingData }) {
+function BillingForm() {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
+  const { user, handleUser } = useContext(ExportContextUser.UserContext);
 
-  const onSubmit = (data) => {
-    axios
-      .patch(`${import.meta.env.VITE_BACKEND_URL}/profiles`, data)
+  const onSubmit = async (data) => {
+    const profile = { ...data };
+    await axios
+      .patch(
+        `https://werevartserverapi.onrender.com/api/profiles/${user.id}`,
+        profile
+      )
       .then((res) => {
-        setBillingData(res.data);
-        navigate("/profile/billing");
+        handleUser(res.data);
       })
+      .then(navigate("/profile/billing"))
       .catch((err) => console.error(err));
   };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
@@ -33,6 +39,7 @@ function BillingForm({ setBillingData }) {
           <input
             type="text"
             className="field_input"
+            defaultValue={user.company && user.company.companyname}
             placeholder="Enter your company name"
             {...register("companyname", { required: true })}
           />
@@ -45,6 +52,9 @@ function BillingForm({ setBillingData }) {
           <input
             type="text"
             className="field_input"
+            defaultValue={
+              user.company && user.company.companyregistrationnumber
+            }
             placeholder="Enter your registration number"
             {...register("companyregistrationnumber", { required: true })}
           />
@@ -57,6 +67,9 @@ function BillingForm({ setBillingData }) {
           <input
             type="text"
             className="field_input duo"
+            defaultValue={
+              user.company && user.company.companyregistrationcountry
+            }
             placeholder="Enter your registration country"
             {...register("companyregistrationcountry", { required: true })}
           />
@@ -69,6 +82,7 @@ function BillingForm({ setBillingData }) {
           <input
             type="text"
             className="field_input duo"
+            defaultValue={user.company && user.company.companyaddress}
             placeholder="Enter your first user name"
             {...register("companyaddress", { required: true })}
           />
@@ -82,6 +96,7 @@ function BillingForm({ setBillingData }) {
             type="text"
             className="field_input duo"
             placeholder="Enter your company postcode"
+            defaultValue={user.company && user.company.companypostcode}
             {...register("companypostcode", { required: true })}
           />
         </label>
@@ -94,6 +109,7 @@ function BillingForm({ setBillingData }) {
             type="text"
             className="field_input duo"
             placeholder="Enter your company city"
+            defaultValue={user.company && user.company.companypostcity}
             {...register("companypostcity", { required: true })}
           />
         </label>
