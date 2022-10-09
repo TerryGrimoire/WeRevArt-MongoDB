@@ -37,12 +37,11 @@ function MyProfileInformation() {
               <section className="flex">
                 <p>Softwares</p>
                 <ul>
-                  {/* user && user.softwares.length > 0 ? (
+                  {user && user.softwares.length > 0 ? (
                     user.softwares.map((software) => <li>{software}</li>)
                   ) : (
                     <li>No softwares added</li>
-                  ) */}
-                  404
+                  )}
                 </ul>
               </section>
             </section>

@@ -21,8 +21,6 @@ import PersonalInformation from "./components/MyProfile/Personal/PersonalInforma
 import PersonalForm from "./components/MyProfile/Personal/PersonalForm";
 import BillingInformation from "./components/MyProfile/Billing/Billinginformation";
 import BillingForm from "./components/MyProfile/Billing/BillingForm";
-import NotificationsInformation from "./components/MyProfile/Notifications/NotificationsInformation";
-import NotificationsForm from "./components/MyProfile/Notifications/NotificationsForm";
 import MyProfileInformation from "./components/MyProfile/Account/MyProfileInformation";
 import MyProfileForm from "./components/MyProfile/Account/MyProfileForm";
 
@@ -52,14 +50,6 @@ function App() {
             element={<MyProfileInformation />}
           />
           <Route path="/profile/profileForm" element={<MyProfileForm />} />
-          <Route
-            path="/profile/notifications"
-            element={<NotificationsInformation />}
-          />
-          <Route
-            path="/profile/notificationsForm"
-            element={<NotificationsForm />}
-          />
           <Route
             path="/My_Project_Ads"
             element={

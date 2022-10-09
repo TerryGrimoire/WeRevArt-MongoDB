@@ -37,7 +37,7 @@ function BillingForm({ setBillingData }) {
             {...register("companyname", { required: true })}
           />
         </label>
-        <label htmlFor="registrationnumber" className="field_label">
+        <label htmlFor="companyregistrationnumber" className="field_label">
           <div>
             Company registration number
             <span className="field_span"> (required) </span>
@@ -46,10 +46,10 @@ function BillingForm({ setBillingData }) {
             type="text"
             className="field_input"
             placeholder="Enter your registration number"
-            {...register("registrationnumber", { required: true })}
+            {...register("companyregistrationnumber", { required: true })}
           />
         </label>
-        <label htmlFor="registrationcountry" className="field_label">
+        <label htmlFor="companyregistrationcountry" className="field_label">
           <div>
             Country of registration
             <span className="field_span"> (required) </span>
@@ -58,10 +58,10 @@ function BillingForm({ setBillingData }) {
             type="text"
             className="field_input duo"
             placeholder="Enter your registration country"
-            {...register("registrationcountry", { required: true })}
+            {...register("companyregistrationcountry", { required: true })}
           />
         </label>
-        <label htmlFor="address" className="field_label">
+        <label htmlFor="companyaddress" className="field_label">
           <div>
             Address
             <span className="field_span"> (required) </span>
@@ -70,19 +70,31 @@ function BillingForm({ setBillingData }) {
             type="text"
             className="field_input duo"
             placeholder="Enter your first user name"
-            {...register("adress", { required: true })}
+            {...register("companyaddress", { required: true })}
           />
         </label>
-        <label htmlFor="postcode" className="field_label">
+        <label htmlFor="companypostcode" className="field_label">
           <div>
-            Postcode and City
+            Postcode
             <span className="field_span"> (required) </span>
           </div>
           <input
-            type="postcode"
+            type="text"
             className="field_input duo"
-            placeholder="Enter your postcode and city"
-            {...register("postcode", { required: true })}
+            placeholder="Enter your company postcode"
+            {...register("companypostcode", { required: true })}
+          />
+        </label>
+        <label htmlFor="companycity" className="field_label">
+          <div>
+            City
+            <span className="field_span"> (required) </span>
+          </div>
+          <input
+            type="text"
+            className="field_input duo"
+            placeholder="Enter your company city"
+            {...register("companypostcity", { required: true })}
           />
         </label>
       </div>

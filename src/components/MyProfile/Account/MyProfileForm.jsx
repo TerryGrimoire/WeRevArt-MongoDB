@@ -10,13 +10,17 @@ export default function MyProfileForm() {
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
   const [description, setDescription] = useState();
   const [selectedSkills, setSelectedSkills] = useState();
-  // const [selectedSoftwares, setSelectedSoftwares] = useState();
+  const [selectedSoftwares, setSelectedSoftwares] = useState();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const data = { description, skills: selectedSkills };
+    const data = {
+      description,
+      skills: selectedSkills,
+      softwares: selectedSoftwares,
+    };
     axios
       .patch(
         `https://werevartserverapi.onrender.com/api/profiles/${user.id}`,
@@ -60,7 +64,7 @@ export default function MyProfileForm() {
     setSelectedSkills(selectedOptions.map((skill) => skill.label));
   };
   const handleSoftwares = (selectedOptions) => {
-    setSelectedSkills(selectedOptions.map((skill) => skill.label));
+    setSelectedSoftwares(selectedOptions.map((skill) => skill.label));
   };
 
   return (

@@ -18,9 +18,11 @@ function BillingInformation() {
     <div>
       <h3>Billing information</h3>
       <p>{billingData.companyname}</p>
-      <p>{billingData.registrationnumber}</p>
-      <p>{billingData.address}</p>
-      <p>{billingData.postcode}</p>
+      <p>{billingData.companyregistrationnumber}</p>
+      <p>{billingData.companyregistrationcountry}</p>
+      <p>{billingData.companyaddress}</p>
+      <p>{billingData.companypostcode}</p>
+      <p>{billingData.companycity}</p>
       <button
         type="button"
         className="button-style yellow"

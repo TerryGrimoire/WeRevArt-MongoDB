@@ -11,18 +11,33 @@ function ArtistCards({ artist }) {
           <img className="card-img-top" src={artist.src} alt={artist.alt} />
           <div className="card-identity">
             <h4 className="card-title">
-              {`${artist.firstName} ${artist.lastName}`}
+              {`${artist.firstname} ${artist.lastname}`}
             </h4>
             <h5>{artist.type}</h5>
           </div>
           <p className="card-text">{artist.country}</p>
           <div className="card_map">
-            {artist.skills.map((skill) => (
-              <ul className="skills_list">
-                <li className="list-group-item">{skill}</li>
-              </ul>
-            ))}
             <p className="card-body">Description :{artist.description}</p>
+            <section>
+              <h5>skills:</h5>
+              {artist.skills.map((skill) => (
+                <ul className="skills_list">
+                  <li>
+                    <small>{skill}</small>
+                  </li>
+                </ul>
+              ))}
+            </section>
+            <section>
+              <h5>sotfwares:</h5>
+              {artist.softwares.map((skill) => (
+                <ul className="skills_list">
+                  <li>
+                    <small>{skill}</small>
+                  </li>
+                </ul>
+              ))}
+            </section>
             <Likebutton />
           </div>
           <div />

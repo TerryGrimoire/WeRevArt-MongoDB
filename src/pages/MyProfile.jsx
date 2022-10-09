@@ -10,7 +10,6 @@ import MiniHeader from "../components/miniHeader";
 import MyProfileForm from "../components/MyProfile/Account/MyProfileForm";
 import PersonalForm from "../components/MyProfile/Personal/PersonalForm";
 import BillingForm from "../components/MyProfile/Billing/BillingForm";
-import NotificationsForm from "../components/MyProfile/Notifications/NotificationsForm";
 
 // import information
 // import MyProfileInformation from "../components/MyProfile/Account/MyProfileInformation";
@@ -123,7 +122,6 @@ function MyProfile() {
         {choice === "account" && <MyProfileForm />}
         {choice === "personal" && <PersonalForm />}
         {choice === "billing" && <BillingForm />}
-        {choice === "notifications" && <NotificationsForm />}
       </div>
     </div>
   );
