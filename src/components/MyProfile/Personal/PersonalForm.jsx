@@ -38,7 +38,7 @@ function PersonalForm() {
       className="myAccount_container_noMiniHeader"
     >
       <div className="field_container">
-        <label htmlFor="firstName" className="field_label">
+        <label htmlFor="firstname" className="field_label">
           <div>
             First Name
             <span className="field_span"> (required) </span>
@@ -47,11 +47,11 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your first name"
-            defaultValue={user && user.firstName}
-            {...register("firstName", { required: true })}
+            defaultValue={user && user.firstname}
+            {...register("firstname", { required: true })}
           />
         </label>
-        <label htmlFor="lastName" className="field_label">
+        <label htmlFor="lastname" className="field_label">
           <div>
             Last Name
             <span className="field_span"> (required) </span>
@@ -60,8 +60,8 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your last name"
-            defaultValue={user && user.lastName}
-            {...register("lastName", { required: true })}
+            defaultValue={user && user.lastname}
+            {...register("lastname", { required: true })}
           />
         </label>
         <label htmlFor="username" className="field_label">
@@ -77,7 +77,7 @@ function PersonalForm() {
             {...register("username", { required: true })}
           />
         </label>
-        <label htmlFor="adress" className="field_label">
+        <label htmlFor="address" className="field_label">
           <div>
             Address
             <span className="field_span"> (required) </span>
@@ -86,8 +86,8 @@ function PersonalForm() {
             type="text"
             className="field_input solo"
             placeholder="Enter your address"
-            defaultValue={user && user.adress}
-            {...register("adress", { required: true })}
+            defaultValue={user && user.address}
+            {...register("address", { required: true })}
           />
         </label>
         <label htmlFor="postcode" className="field_label">

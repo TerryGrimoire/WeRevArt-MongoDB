@@ -70,3 +70,32 @@
   background-color: var(--button-color);
   color: var(--font-color);
 }
+
+/* MyProfileForm */
+
+.MyProfileForm-form-container {
+  display: flex;
+  flex-direction: column;
+}
+.MyProfileForm-form-container > * {
+  margin: 1rem 0;
+
+}
+
+.MyProfileForm-form-container label {
+  padding: 0;
+}
+
+.MyProfileForm-form-container textarea {
+  width: 60vw;
+  height: 30vh;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  padding: 1rem;
+  resize: none;
+}
+
+.myProfileForm_container {  
+  padding: 2rem;
+}

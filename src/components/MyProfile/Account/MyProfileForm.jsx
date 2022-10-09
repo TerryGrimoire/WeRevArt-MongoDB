@@ -1,31 +1,70 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Select from "react-select";
 import "../../../style/MyProfile.css";
 import ExportContextUser from "../../../context/UserContext";
 // eslint-disable-next-line import/no-extraneous-dependencies
 
 export default function MyProfileForm() {
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
+  const [description, setDescription] = useState();
+  const [selectedSkills, setSelectedSkills] = useState();
+  // const [selectedSoftwares, setSelectedSoftwares] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const data = { description, skills: selectedSkills };
     axios
       .patch(
         `https://werevartserverapi.onrender.com/api/profiles/${user.id}`,
-        profile
+        data
       )
       .then((res) => {
         handleUser(res.data);
       })
-      .then(useNavigate("/profile/description"))
+      .then(navigate("/profile/description"))
       .catch((err) => console.error(err));
   };
-  const skills = ["Motion", "VR", "3D", "Painting", "Photography"];
-  const software = ["Motion", "VR", "3D", "Painting", "Photography"];
-  typeOfContrat = ["free", "paid"];
+
+  // React Select options
+
+  const skills = [
+    { value: "Motion", label: "Motion" },
+    { value: "Virtual Reality", label: "Virtual Reality" },
+    { value: "3D", label: "3D" },
+    { value: "Painting", label: "Painting" },
+    { value: "Photographie", label: "Photographie" },
+  ];
+  const software = [
+    { value: "Adobe Photoshop", label: "Adobe Photoshop" },
+    { value: "Procreate", label: "Procreate" },
+    { value: "Corel Painter", label: "Corel Painter" },
+    { value: "Adobe Fresco", label: "Adobe Fresco" },
+    { value: "Adobe Illustrator", label: "Adobe Illustrator" },
+    { value: "Affinity Photo", label: "Affinity Photo" },
+    { value: "Rebelle 4", label: "Rebelle 4" },
+    { value: "Krita", label: "Krita" },
+    { value: "CorelDRAW", label: "CorelDRAW" },
+    { value: "GIMP", label: "GIMP" },
+    { value: "Clip Studio Paint Pro", label: "Clip Studio Paint Pro" },
+    { value: "MediBang Paint Pro", label: "MediBang Paint Pro" },
+    { value: "PaintStorm Studio", label: "PaintStorm Studio" },
+    { value: "IbisPaint", label: "IbisPaint" },
+    { value: "ArtRage", label: "ArtRage" },
+  ];
+
+  const handleSkills = (selectedOptions) => {
+    setSelectedSkills(selectedOptions.map((skill) => skill.label));
+  };
+  const handleSoftwares = (selectedOptions) => {
+    setSelectedSkills(selectedOptions.map((skill) => skill.label));
+  };
+
   return (
-    <section className="section_form">
+    <section className="myProfileForm_container">
       <form onSubmit={handleSubmit}>
         <div className="flex">
           <label htmlFor="type">
@@ -36,24 +75,19 @@ export default function MyProfileForm() {
           </label>
         </div>
 
-        <label className="profiledescription " htmlFor="messageInput">
-          Your public presentation
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="profiledescription"
-            name="descriptionInput"
-          />
-        </label>
-        <h3 className="profile_h3"> Your skills</h3>
-        <Skills skills={skills} handleSkills={handleSkills} />
-        <h3 className="profile_h3"> Software used</h3>
-        <SoftwareUse soft={soft} handleSoft={handleSoft} />
-        <h3 className="profile_h3"> Your prefered type of contract</h3>
-        <ContractTypes
-          typeOfContrat={typeOfContrat}
-          handleContracts={handleContracts}
-        />
+        <div className="MyProfileForm-form-container">
+          <label className="profiledescription " htmlFor="messageInput">
+            Your public presentation
+            <textarea
+              defaultValue={user && user.description}
+              onChange={(e) => setDescription(e.target.value)}
+              className="profiledescription"
+              name="descriptionInput"
+            />
+          </label>
+          <Select options={skills} isMulti onChange={handleSkills} />
+          <Select options={software} isMulti onChange={handleSoftwares} />
+        </div>
 
         <button type="submit" value="send" className="button_form_qb yellow">
           Save

@@ -23,13 +23,13 @@ function PersonalInformation() {
           <div className="personal-information-container">
             <h2> Personal Information </h2>
             <section>
-              <p>firstname: {user.firstName}</p>
-              <p>lastname: {user.lastName}</p>
+              <p>firstname: {user.firstname}</p>
+              <p>lastname: {user.lastname}</p>
               <p>username: {user.username}</p>
               <p>email address: {user.email}</p>
               <p>city: {user.city}</p>
               <p>postcode: {user.postcode}</p>
-              <p>address: {user.adress}</p>
+              <p>address: {user.address}</p>
               <p>country: {user.country}</p>
             </section>
             <Link to="/MyProfile">
