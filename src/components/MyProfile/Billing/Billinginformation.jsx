@@ -8,30 +8,31 @@ function BillingInformation() {
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
   const [userDisplay, setUserDisplay] = useState();
 
-  const getData = () => {
-    axios
-      .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
-      .then((response) => setUserDisplay(response.data))
-      .catch((err) => console.error(err));
-  };
-
   useEffect(() => {
-    getData();
+    if (user.id) {
+      axios
+        .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
+        .then((res) => setUserDisplay(res.data))
+        .catch((err) => console.error(err));
+    }
   }, [user]);
 
   useEffect(() => {
-    handleUser(userDisplay);
+    if (userDisplay) {
+      handleUser(userDisplay);
+    }
   }, []);
+
   return (
     <section className="flex">
       <ProfileInformationNav />
       <div>
         <h3>Billing information</h3>
-        {userDisplay ? (
+        {userDisplay && userDisplay.company ? (
           <div>
             <p> Company name: {userDisplay.company.companyname}</p>
             <p>
-              Company registration number:{" "}
+              Company registration number:
               {userDisplay.company.companyregistrationnumber}
             </p>
             <p>

@@ -22,7 +22,6 @@ function PersonalInformation() {
   useEffect(() => {
     handleUser(userDisplay);
   }, []);
-
   return (
     <div className="container2">
       <section className="flex">

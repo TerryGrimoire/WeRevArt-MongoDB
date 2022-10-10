@@ -47,7 +47,11 @@ function BillingForm() {
           <input
             type="text"
             className="field_input"
-            defaultValue={userProfile && userProfile.company.companyname}
+            defaultValue={
+              userProfile &&
+              userProfile.company &&
+              userProfile.company.companyname
+            }
             placeholder="Enter your company name"
             {...register("companyname", { required: true })}
           />
@@ -61,7 +65,9 @@ function BillingForm() {
             type="text"
             className="field_input"
             defaultValue={
-              userProfile && userProfile.company.companyregistrationnumber
+              userProfile &&
+              userProfile.company &&
+              userProfile.company.companyregistrationnumber
             }
             placeholder="Enter your registration number"
             {...register("companyregistrationnumber", { required: true })}
@@ -76,7 +82,9 @@ function BillingForm() {
             type="text"
             className="field_input duo"
             defaultValue={
-              userProfile && userProfile.company.companyregistrationcountry
+              userProfile &&
+              userProfile.company &&
+              userProfile.company.companyregistrationcountry
             }
             placeholder="Enter your registration country"
             {...register("companyregistrationcountry", { required: true })}
@@ -90,7 +98,11 @@ function BillingForm() {
           <input
             type="text"
             className="field_input duo"
-            defaultValue={userProfile && userProfile.company.companyaddress}
+            defaultValue={
+              userProfile &&
+              userProfile.company &&
+              userProfile.company.companyaddress
+            }
             placeholder="Enter your first user name"
             {...register("companyaddress", { required: true })}
           />
@@ -104,7 +116,11 @@ function BillingForm() {
             type="text"
             className="field_input duo"
             placeholder="Enter your company postcode"
-            defaultValue={userProfile && userProfile.company.companypostcode}
+            defaultValue={
+              userProfile &&
+              userProfile.company &&
+              userProfile.company.companypostcode
+            }
             {...register("companypostcode", { required: true })}
           />
         </label>
@@ -117,7 +133,11 @@ function BillingForm() {
             type="text"
             className="field_input duo"
             placeholder="Enter your company city"
-            defaultValue={userProfile && userProfile.company.companypostcity}
+            defaultValue={
+              userProfile &&
+              userProfile.company &&
+              userProfile.company.companypostcity
+            }
             {...register("companypostcity", { required: true })}
           />
         </label>
