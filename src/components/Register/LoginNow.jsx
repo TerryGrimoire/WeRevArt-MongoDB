@@ -24,7 +24,7 @@ function LoginNow() {
       .post("https://werevartserverapi.onrender.com/api/users/login", data)
       .then((res) => setUser(res.data))
       .then(localStorage.setItem("user", JSON.stringify(user)))
-      .then(user && navigate("/profile/personal"))
+      .then(navigate("/"))
       .catch((err) => setError(err));
   };
   return (
