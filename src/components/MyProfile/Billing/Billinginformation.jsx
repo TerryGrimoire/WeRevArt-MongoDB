@@ -1,35 +1,45 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ExportContextUser from "../../../context/UserContext";
 import ProfileInformationNav from "../../../pages/Profile/ProfileNav";
 
 function BillingInformation() {
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
-  const navigate = useNavigate();
-  useEffect(() => {
+  const [userDisplay, setUserDisplay] = useState();
+
+  const getData = () => {
     axios
       .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
-      .then((res) => handleUser(res.data))
+      .then((response) => setUserDisplay(response.data))
       .catch((err) => console.error(err));
-    if (!user.company) {
-      navigate("/Register");
-    }
+  };
+
+  useEffect(() => {
+    getData();
   }, [user]);
 
+  useEffect(() => {
+    handleUser(userDisplay);
+  }, []);
   return (
     <section className="flex">
       <ProfileInformationNav />
       <div>
         <h3>Billing information</h3>
-        {user.company ? (
+        {userDisplay ? (
           <div>
-            <p>{user.companyname}</p>
-            <p>{user.companyregistrationnumber}</p>
-            <p>{user.companyregistrationcountry}</p>
-            <p>{user.companyaddress}</p>
-            <p>{user.companypostcode}</p>
-            <p>{user.companycity}</p>
+            <p> Company name: {userDisplay.company.companyname}</p>
+            <p>
+              Company registration number:{" "}
+              {userDisplay.company.companyregistrationnumber}
+            </p>
+            <p>
+              Company country: {userDisplay.company.companyregistrationcountry}
+            </p>
+            <p> Company address: {userDisplay.company.companyaddress}</p>
+            <p> Company post code: {userDisplay.company.companypostcode}</p>
+            <p> Company city: {userDisplay.company.companypostcity}</p>
             <Link to="/profile/billingForm">
               <button type="button" className="button-style2 yellow">
                 Edit Information

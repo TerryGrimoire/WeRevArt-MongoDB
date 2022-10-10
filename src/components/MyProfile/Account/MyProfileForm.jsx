@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Select from "react-select";
@@ -11,6 +11,7 @@ export default function MyProfileForm() {
   const [description, setDescription] = useState();
   const [selectedSkills, setSelectedSkills] = useState();
   const [selectedSoftwares, setSelectedSoftwares] = useState();
+  const [userProfile, setUserProfile] = useState();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -33,7 +34,12 @@ export default function MyProfileForm() {
       .catch((err) => console.error(err));
   };
 
-  // React Select options
+  useEffect(() => {
+    axios
+      .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
+      .then((response) => setUserProfile(response.data))
+      .catch((err) => console.error(err));
+  }, [user]);
 
   const skills = [
     { value: "Motion", label: "Motion" },
@@ -83,13 +89,20 @@ export default function MyProfileForm() {
           <label className="profiledescription " htmlFor="messageInput">
             Your public presentation
             <textarea
-              defaultValue={user && user.description}
+              defaultValue={userProfile && userProfile.description}
               onChange={(e) => setDescription(e.target.value)}
               className="profiledescription"
               name="descriptionInput"
             />
           </label>
-          <Select options={skills} isMulti onChange={handleSkills} />
+          <Select
+            options={skills}
+            isMulti
+            onChange={handleSkills}
+            defautValue={
+              userProfile && userProfile.skills.map((skill) => skill)
+            }
+          />
           <Select options={software} isMulti onChange={handleSoftwares} />
         </div>
 

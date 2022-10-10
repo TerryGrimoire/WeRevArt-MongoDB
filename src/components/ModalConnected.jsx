@@ -5,15 +5,13 @@ import ExportContextUser from "../context/UserContext";
 function ModalConnected({ setModal }) {
   const { user } = useContext(ExportContextUser.UserContext);
   const customer = [
-    { label: "My account", link: "/MyAccount" },
-    { label: "My profile", link: "/MyProfile" },
+    { label: "My profile", link: "/profile/personal" },
     { label: "My project ads", link: "/" },
     { label: "My favourite artists", link: "/" },
   ];
 
   const artist = [
-    { label: "My account", link: "/MyAccount" },
-    { label: "My profile", link: "/MyProfile" },
+    { label: "My profile", link: "/profile/personal" },
     { label: "My subscription", link: "/" },
     { label: "My creations", link: "/" },
   ];

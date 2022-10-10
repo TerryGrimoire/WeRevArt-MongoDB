@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
@@ -11,9 +11,11 @@ function PersonalForm() {
   const { handleSubmit, register } = useForm();
   const navigate = useNavigate();
   const { user, handleUser } = useContext(ExportContextUser.UserContext);
-  const onSubmit = async (data) => {
+  const [userProfile, setUserProfile] = useState();
+
+  const onSubmit = (data) => {
     const profile = { ...data };
-    await axios
+    axios
       .patch(
         `https://werevartserverapi.onrender.com/api/profiles/${user.id}`,
         profile
@@ -28,7 +30,7 @@ function PersonalForm() {
   useEffect(() => {
     axios
       .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
-      .then((res) => handleUser(res.data))
+      .then((response) => setUserProfile(response.data))
       .catch((err) => console.error(err));
   }, [user]);
 
@@ -47,7 +49,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your first name"
-            defaultValue={user && user.firstname}
+            defaultValue={userProfile && userProfile.firstname}
             {...register("firstname", { required: true })}
           />
         </label>
@@ -60,7 +62,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your last name"
-            defaultValue={user && user.lastname}
+            defaultValue={userProfile && userProfile.lastname}
             {...register("lastname", { required: true })}
           />
         </label>
@@ -73,7 +75,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your username"
-            defaultValue={user && user.username}
+            defaultValue={userProfile && userProfile.username}
             {...register("username", { required: true })}
           />
         </label>
@@ -86,7 +88,7 @@ function PersonalForm() {
             type="text"
             className="field_input solo"
             placeholder="Enter your address"
-            defaultValue={user && user.address}
+            defaultValue={userProfile && userProfile.address}
             {...register("address", { required: true })}
           />
         </label>
@@ -99,7 +101,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your postcode"
-            defaultValue={user && user.postcode}
+            defaultValue={userProfile && userProfile.postcode}
             {...register("postcode", { required: true })}
           />
         </label>
@@ -112,7 +114,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your city"
-            defaultValue={user && user.city}
+            defaultValue={userProfile && userProfile.city}
             {...register("city", { required: true })}
           />
         </label>
@@ -125,7 +127,7 @@ function PersonalForm() {
             type="text"
             className="field_input"
             placeholder="Enter your country"
-            defaultValue={user && user.country}
+            defaultValue={userProfile && userProfile.country}
             {...register("country", { required: true })}
           />
         </label>

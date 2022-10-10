@@ -14,8 +14,8 @@ function ProfileInformationNav() {
         <Link to="/Profile/billing" className="button_style3">
           Billing information
         </Link>
-        <Link to="/Profile/notifications" className="button_style3">
-          Notifications
+        <Link to="/Profile/settings" className="button_style3">
+          Settings
         </Link>
       </section>
     </div>
