@@ -95,14 +95,7 @@ export default function MyProfileForm() {
               name="descriptionInput"
             />
           </label>
-          <Select
-            options={skills}
-            isMulti
-            onChange={handleSkills}
-            defautValue={
-              userProfile && userProfile.skills.map((skill) => skill)
-            }
-          />
+          <Select options={skills} isMulti onChange={handleSkills} />
           <Select options={software} isMulti onChange={handleSoftwares} />
         </div>
 

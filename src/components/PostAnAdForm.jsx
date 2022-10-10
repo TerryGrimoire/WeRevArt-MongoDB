@@ -1,101 +1,133 @@
-import React, { useState } from "react";
-
-import Skills from "./Skills";
-import ContractTypes from "./ContractTypes";
-import Budget from "./Budget";
-import Timeframe from "./Timeframe";
-import MyCreationUpload from "./MyCreationUpload";
+import axios from "axios";
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Select from "react-select";
+import ExportContextUser from "../context/UserContext";
 
 function PostAnAdForm() {
+  const { user } = useContext(ExportContextUser.UserContext);
   const [description, setDescription] = useState("");
-  const [detail, setDetail] = useState("");
-  const [skills, setSkills] = useState([]);
-  const [typeOfContrat, setContractTypes] = useState([]);
-  const [budget, setBudget] = useState([]);
+  const [title, setTitle] = useState("");
+  const [techniques, setTechniques] = useState([]);
+  const [contracts, setContracts] = useState([]);
   const [timeframe, setTimeframe] = useState([]);
+  const [image, setImage] = useState([]);
+  const [userProfile, setUserProfile] = useState();
+  const navigate = useNavigate();
+  // Techniques
+  const techniquesOptions = [
+    { value: "Motion", label: "Motion" },
+    { value: "Virtual Reality", label: "Virtual Reality" },
+    { value: "3D", label: "3D" },
+    { value: "Painting", label: "Painting" },
+    { value: "Photographie", label: "Photographie" },
+  ];
 
-  const handleSkills = (id) => {
-    if (skills.includes(id)) {
-      setSkills(skills.filter((skill) => skill !== id));
-    } else {
-      setSkills([...skills, id]);
-    }
+  const handleTechniques = (selectedOptions) => {
+    setTechniques(selectedOptions.map((technique) => technique.label));
   };
 
-  const handleContracts = (id) => {
-    if (typeOfContrat.includes(id)) {
-      setContractTypes(
-        typeOfContrat.filter((contracttype) => contracttype !== id)
-      );
-    } else {
-      setContractTypes([...typeOfContrat, id]);
-    }
+  // Contracts
+  const contractsOptions = [
+    { value: "Paid Contract", label: "Paid Contract" },
+    { value: "Free Collaboration", label: "Free Collaboration" },
+  ];
+
+  const handleContracts = (selectedOptions) => {
+    setContracts(selectedOptions);
   };
 
-  const handleBudget = (id) => {
-    if (budget.includes(id)) {
-      setBudget(budget.filter((budgets) => budgets !== id));
-    } else {
-      setBudget([...budget, id]);
-    }
+  // Timeframe
+  const timeframeOptions = [
+    { value: "Urgent", label: "Urgent" },
+    { value: "As soon as possible", label: "As soon as possible" },
+    { value: "Not urgent", label: "Not urgent" },
+  ];
+
+  const handleTimeframe = (selectedOptions) => {
+    setTimeframe(selectedOptions);
   };
 
-  const handleTimeframe = (id) => {
-    if (timeframe.includes(id)) {
-      setTimeframe(timeframe.filter((timeframes) => timeframes !== id));
-    } else {
-      setTimeframe([...timeframe, id]);
-    }
+  // useEffect to get information from the user
+  useEffect(() => {
+    axios
+      .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
+      .then((response) => setUserProfile(response.data))
+      .catch((err) => console.error(err));
+  }, [user]);
+
+  // Submit function
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      contract: contracts.value,
+      timeframe: timeframe.value,
+      src: image,
+      alt: title,
+      title,
+      description,
+      techniques,
+      artiste: {
+        profileId: user.id,
+        username: userProfile.username,
+      },
+    };
+
+    // sending data to the server and db
+    axios
+      .post("https://werevartserverapi.onrender.com/api/projects", data)
+      .then((res) => res.status(200).json(res))
+      .then(navigate("/Project_Ads"))
+      .catch((err) => console.error(err));
   };
 
   return (
-    <section className="section_form">
-      <div className="profile_picture_upload">
-        <MyCreationUpload />
-      </div>
+    <form className="section_form" onSubmit={(e) => handleSubmit(e)}>
       <div className="flex-column">
         <label className="profiledescription" htmlFor="messageInput">
           Name of the project
           <input
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
             className="field_input"
-            name="descriptionInput"
+          />
+        </label>
+        <label className="profiledescription" htmlFor="Image">
+          Link to image
+          <input
+            onChange={(e) => setImage(e.target.value)}
+            className="field_input"
           />
         </label>
         <label className="profiledescription " htmlFor="messageInput">
           Details about your needs
           <textarea
-            value={detail}
-            onChange={(e) => setDetail(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
             className="textarea"
             name="descriptionInput"
           />
         </label>
+        <div>
+          <h3>Desired technology</h3>
+          <Select
+            options={techniquesOptions}
+            isMulti
+            onChange={handleTechniques}
+          />
+        </div>
+        <div>
+          <h3>Type of Contract</h3>
+          <Select options={contractsOptions} onChange={handleContracts} />
+        </div>
+        <div>
+          <h3>Timeframe</h3>
+          <Select options={timeframeOptions} onChange={handleTimeframe} />
+        </div>
       </div>
-      <div className="paa_subcontainer">
-        <h3 className="profile_h3">Choose an animation technique</h3>
-        <Skills skills={skills} handleSkills={handleSkills} />
-      </div>
-      <div className="flex paa_subcontainer">
-        <h3 className="profile_h3">What type of contract ?</h3>
-        <ContractTypes
-          typeOfContrat={typeOfContrat}
-          handleContracts={handleContracts}
-        />
-      </div>
-      <div className="flex paa_subcontainer">
-        <h3 className="profile_h3">What is your budget ?</h3>
-        <Budget budget={budget} handleBudget={handleBudget} />
-      </div>
-      <div className="flex paa_subcontainer">
-        <h3 className="profile_h3">What is the timeframe of your project ?</h3>
-        <Timeframe timeframe={timeframe} handleTimeframe={handleTimeframe} />
-      </div>
-      <button type="submit" className="button-style yellow absolute_right">
+      <button type="submit" className="button-style yellow">
         Submit
       </button>
-    </section>
+    </form>
   );
 }
 export default PostAnAdForm;
