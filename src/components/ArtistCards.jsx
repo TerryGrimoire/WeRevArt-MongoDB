@@ -8,7 +8,11 @@ function ArtistCards({ artist }) {
     <section className="card_container" key={artist.id}>
       <div>
         <div className="card-top">
-          <img className="card-img-top" src={artist.src} alt={artist.alt} />
+          <img
+            className="card-img-top"
+            src={`https://ui-avatars.com/api/?name=${artist.firstname}+${artist.lastname}`}
+            alt={artist.alt}
+          />
           <div className="card-identity">
             <h4 className="card-title">
               {`${artist.firstname} ${artist.lastname}`}
