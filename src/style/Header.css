@@ -60,7 +60,8 @@
 }
 
 .user_avatar_img {
-  width: 50%;
+  width: 4rem;
+  border-radius: 50%;
 }
 
 .modal_connected {

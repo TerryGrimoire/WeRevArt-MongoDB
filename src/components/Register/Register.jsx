@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import ExportContextUser from "../../context/UserContext";
 
 import userAvatar from "../../images/user.png";
@@ -9,6 +10,16 @@ import ModalConnected from "../ModalConnected";
 function Register() {
   const [modal, setModal] = useState(false);
   const { user } = useContext(ExportContextUser.UserContext);
+  const [userDisplay, setUserDisplay] = useState();
+
+  useEffect(() => {
+    if (user) {
+      axios
+        .get(`https://werevartserverapi.onrender.com/api/profiles/${user.id}`)
+        .then((response) => setUserDisplay(response.data))
+        .catch((err) => console.error(err));
+    }
+  }, [user]);
 
   return (
     <section>
@@ -27,7 +38,14 @@ function Register() {
               onClick={() => setModal(!modal)}
             >
               <img
-                src={userAvatar}
+                src={
+                  user &&
+                  userDisplay &&
+                  userDisplay.firstname &&
+                  userDisplay.lastname
+                    ? `https://ui-avatars.com/api/?name=${userDisplay.firstname}+${userDisplay.lastname}`
+                    : userAvatar
+                }
                 alt="avatar of a user"
                 className="user_avatar_img"
               />
