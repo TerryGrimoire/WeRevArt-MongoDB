@@ -20,8 +20,15 @@ function CardProject() {
     <section className="cardProject_cardProject">
       <div className="cardProject_cards">
         <h2>Latest project ads</h2>
-        {projects &&
-          projects.map((project) => <NewProject project={project} />)}
+        {projects ? (
+          projects.map((project) => <NewProject project={project} />)
+        ) : (
+          <img
+            src="https://media4.giphy.com/media/HiQK2oD5rHCMdq6EHX/giphy.gif?cid=ecf05e47tozp6fwxrqz5g205w0bazozuvahqeld4j2vc3vsj&rid=giphy.gif&ct=s"
+            alt="loading circles"
+            className="loading"
+          />
+        )}
         <div className="cardProject_homeToAllCard">
           <Link to="/Project_Ads" className="cardProject_allCard">
             VIEW ALL ADS
