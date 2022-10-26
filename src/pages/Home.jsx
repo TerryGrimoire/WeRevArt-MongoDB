@@ -6,7 +6,7 @@ import CardProject from "../components/Home/CardProject";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
       <Helmet>
         <title>We Rev&apos;Art | Home </title>
       </Helmet>
@@ -14,6 +14,12 @@ export default function Home() {
       <Suggestioncard />
       <HowItWork />
       <CardProject />
+      <div className="mobile">
+        <h2>
+          Ce site n&apos;a pas vocation a être utilisé sur un téléphone mobile.
+        </h2>
+        <p>Nous vous invitons à le visiter à nouveau depuis un ordinateur.</p>
+      </div>
     </div>
   );
 }
