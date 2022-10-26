@@ -126,6 +126,10 @@ width: 18rem;
   position: relative;
 }
 
+.mobile {
+  display: none;
+}
+
 /* Version mobile */
 
 @media (max-width: 600px) {
